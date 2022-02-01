@@ -1,0 +1,295 @@
+a {
+    color: #37a;
+    text-decoration: none;
+}
+a:hover {
+    background-color: #37a;
+    color:#fff;
+}
+h1 {
+    width: 675px;
+    height: 50px;
+}
+.introduce1 {
+    width: 675px;
+    height: 400px;
+    /* background-color: rebeccapurple; */
+}
+.introduce1 img {
+    width: 135px;
+    height: 220px;
+    /* background-color: royalblue; */
+}
+.message {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 13px;
+    width: 333px;
+    height: 320px;
+    margin-left: 20px;
+    /* background-color: rebeccapurple; */
+}
+.hide {
+    overflow: hidden;
+    width: 320px;
+    height: 20px;
+}
+.message a {
+    float: right;
+    color: #aaa;
+}
+.commend {
+    float: right;
+    width: 150px;
+    height: 200px;
+    margin: 2px 0 0 0;
+    padding: 0 0 0 15px;
+    border-left: 1px solid #eaeaea;
+    color: #9b9b9b;
+    font-size: 12px;
+    line-height: 14px;
+}
+h2 {
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    line-height: 50px;
+    color: #494949;
+    font-size: 28px;
+}
+.ui1 {
+    width: 675px;
+    height: 40px;
+    /* background-color: silver; */
+}
+.ui1 a {
+    display: inline-block;
+    text-align: center;
+    height: 20px;
+    width: 50px;
+    background-color: bisque;
+    border: 1px solid gray;
+}
+.ui2 {
+    width: 675px;
+    height: 40px;
+}
+.ui2 a {
+    display: inline-block;
+    margin: 0 10px;
+    font-size: 13px;
+}
+.introduce2  {
+    width: 675px;
+    height: 150px;
+    /* background-color: gray; */
+}
+/* 统一开头 */
+.hd {
+    width: 675px;
+    height: 40px;
+}
+.commonfont {
+    font-size: 16px;
+    color: #007722;
+}
+button {
+    float: right;
+    border: none;
+    color: #ca6445;
+    background: #fae9da;
+    padding: 7px 12px;
+    border-radius: 2px;
+}
+#introduce  {
+    width: 675px;
+    height: 100px;
+    font-size: 13px;
+    margin-top: 20px;
+    line-height: 25px;
+}
+/* 演员 */
+.performer {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    width: 675px;
+    height: 250px;
+}
+.performer li {
+    width: 100px;
+    height: 200px;
+}
+.performer li img {
+    width: 100px;
+    height: 150px;
+}
+.performername {
+    text-align: center;
+    font-size: 13px;
+}
+.performerjob {
+    text-align: center;
+    font-size: 13px;
+    color: #9b9b9b;
+    margin-top: 10px;
+}
+/* 剧照 */
+.still {
+    display: flex;
+    justify-content: space-around;
+    width: 675px;
+    height: 115px;
+    margin: 20px 0;
+}
+.still img {
+    width: 120px;
+    height: 115px;
+}
+/* 短评 */
+.short {
+    width: 675px;
+    margin: 80px 0;
+}
+.short ul {
+    width: 675px;
+    height: 60px;
+    padding: 14px 0;
+    border-bottom:1px solid #eaeaea;
+}
+.short li:nth-child(1) {
+    width: 675px;
+    height: 22px;
+}
+.short li:nth-child(2) {
+    width: 675px;
+    height: 45px;
+    line-height: 1.5;
+    font-size: 13px;
+    color: #494949;
+}
+.usenum{
+    float: right;
+    color: #aaa;
+}
+.usea {
+    float: right;
+}
+/* 影评 */
+.movie {
+    width: 675px;
+    margin-bottom: 100px;
+}
+.movie ul {
+    width: 675px;
+    height: 180px;
+    padding: 20px 0px;
+    border-bottom:1px solid #eaeaea;
+}
+.movie li:nth-child(1) {
+    width: 675px;
+    height: 24px;
+}
+.movie img {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+}
+.xing {
+    display: inline-block;
+    width: 110px;
+    height: 22px;
+    background: url(./build01/stars.png);
+    zoom: 0.5;
+}
+.clock {
+    font-size: 13px;
+    margin-left: 10px;
+    font-weight: 300;
+    color: #999;
+}
+.movie li:nth-child(2) {
+    width: 675px;
+    height: 21px;
+    margin: 20px 0;
+}
+.movie li:nth-child(2) a {
+    font-size: 16px;
+}
+.movie li:nth-child(3) {
+    width: 675px;
+    height: 64px;
+    color: #494949;
+    overflow: hidden;
+    font-size: 13px;
+    line-height: 20px;
+}
+.movie li:nth-child(4) {
+    width: 675px;
+    height: 21px;
+    margin: 15px 0;
+}
+.movie li:nth-child(4) a:first-child,.movie li:nth-child(4) a:nth-child(2) {
+    display: inline-block;
+    padding: 4px 6px;
+    margin-right: 4px;
+    border-radius: 2px;
+    background-color: #f0f7f9;
+}
+
+/* 讨论区 */
+.discuss {
+    width: 675px;
+}
+.discuss ul {
+    width: 675px;
+    font-size: 0;
+    height: 30px;
+    margin-top: 10px;
+    color: #666666;
+    border-bottom:1px solid #eaeaea;
+}
+.discuss li {
+    display: inline-block;
+    height: 30px;
+    font-size: 13px;
+    overflow: hidden;
+}
+.discuss li:nth-child(1) {
+    width: 350px;
+}
+.discuss li:nth-child(2) {
+    width: 75px;
+}
+.discuss li:nth-child(3){
+    width: 100px;
+}
+.discuss li:nth-child(4) {
+    width: 150px;
+}
+/* 登录状态 */
+.header_right1 {
+    position: relative;
+}
+
+.myself {
+    display: none;
+    width: 88px;
+    height: 140px;
+    padding: 10px 0;
+    border: 1px solid #e6e6e6;
+    background: #fff;
+    position: absolute;
+    top: 28px;
+    left: 0;
+}
+.myself li {
+    width: 88px;
+    height: 28px;
+    font-size: 12px;
+    text-align: center;
+}
+/* 特效 */
+.myself li:hover {
+    background-color:  #e6e6e6;
+}
