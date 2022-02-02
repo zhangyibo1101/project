@@ -7,18 +7,23 @@ mv.src = movie.URL;
 h1.innerHTML = movie.Name;
 //演员
 let performers = document.querySelectorAll('.performer img');
-for (let i = 0; i < 6; i++) {
-    performers[i].src = movie.PeopleURL.split(",")[i];
-}
-console.log(movie.PeopleURL.split(','));
+movie.PeopleURL.split(',').map((item,index)=> {
+    performers[index].src=item
+})
 let performername=document.querySelectorAll('.performername');
-for (let i = 0; i < 6; i++) {
-    performername[i].innerHTML = movie.NameInfo.split(',')[i];
-}
+
+movie.NameInfo.split(',').map((item,index)=> {
+    performername[index].innerHTML=item
+})
 let performerjob=document.querySelectorAll('.performerjob');
-for (let i = 0; i < 6; i++) {
-    performerjob[i].innerHTML = movie.CoverInfo.split(',')[i];
-}
+movie.CoverInfo.split(',').map((item,index)=>{
+    performerjob[index].innerHTML=item;
+})
+//剧照
+let still=document.querySelectorAll('.still img');
+movie.MovieURL.split(',').map((item,index)=>{
+    still[index].src=item;
+})
 //详细介绍
 let messages = document.querySelectorAll('.message li');
 // 以下可以用数组的map，由于之前没有与后端沟通好，所以传来的数据形式不对，见影人的那部分类似的信息

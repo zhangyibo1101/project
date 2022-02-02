@@ -13,12 +13,10 @@ h1 {
 .introduce1 {
     width: 675px;
     height: 400px;
-    /* background-color: rebeccapurple; */
 }
 .introduce1 img {
     width: 135px;
     height: 220px;
-    /* background-color: royalblue; */
 }
 .message {
     display: inline-block;
@@ -27,7 +25,6 @@ h1 {
     width: 333px;
     height: 320px;
     margin-left: 20px;
-    /* background-color: rebeccapurple; */
 }
 .hide {
     overflow: hidden;

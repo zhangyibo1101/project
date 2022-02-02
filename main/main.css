@@ -175,7 +175,7 @@ header {
 /* wrapper部分 */
 .wrapper {
     margin: 0 auto;
-    height: 2720.47px;
+    height: 3000px;
     width: 1040px;
     /* background-color: #e5ebe4; */
     margin-top: 40px;
@@ -183,7 +183,7 @@ header {
 
 .content {
     width: 1040px;
-    height: 2648.04px;
+    height: 3000px;
     /* background-color: blue; */
 }
 
@@ -526,7 +526,6 @@ article {
 /* 影评 */
 .reviews {
     width: 675px;
-    height: 696.79px;
 }
 
 .reviews-hd {
@@ -546,12 +545,11 @@ article {
 
 .reviews-bd {
     width: 675px;
-    height: 643.21px;
 }
 
 .review {
     width: 675px;
-    height: 118.05px;
+    height: 120px;
     margin-bottom: 24px;
     padding-bottom: 24px;
     border-bottom: 1px solid #eaeaea;
@@ -566,7 +564,7 @@ article {
 .review-bd {
     float: right;
     width: 592px;
-    height: 118.05px;
+    height: 120px;
 }
 
 .review-bd a {
@@ -575,7 +573,7 @@ article {
 
 .review-meta {
     width: 592px;
-    height: 31.05px;
+    height: 30px;
     font-size: 13px;
     color: #666;
     padding: 5px 0;
@@ -587,10 +585,16 @@ article {
 
 .review-content {
     width: 592px;
-    height: 60px;
+    height: 80px;
     font-size: 13px;
 }
-
+.commentcontext {
+    width: 592px;
+    height: 60px;
+    overflow: hidden;
+    font-size: 13px;
+    line-height: 20px;
+}
 .star {
     display: inline-block;
     height: 22px;

@@ -4,6 +4,7 @@ let img2 = document.querySelectorAll('#container2orgin img');
 let name2 = document.querySelectorAll('#container2orgin .clone-span1');
 let img3 = document.querySelectorAll('#container3orgin img');
 let name3 = document.querySelectorAll('#container3orgin .clone-span1');
+let reviewarea = document.querySelector('.reviews-bd');
 
 function clone(container, begin, end, arr) {
   for (let i = begin; i < end; i++) {
@@ -46,39 +47,66 @@ window.onload = function () {
       clone(container3clone, 0, 5, as3);
       clone(container3clone, 25, 30, as3);
     })
+  fetch('http://42.192.155.29:8080/mostpopular', {
+      method: 'GET',
+    }).then(res => res.json())
+    .then(res => {
+      res.data.map(item => {
+        reviewarea.innerHTML +=
+          `<div class="review">
+  <img src="${item.URL}" alt="">
+  <div class="review-bd">
+      <div>
+          <a href="">${item.Context.split('，')[0]}</a>
+      </div>
+      <div class="review-meta">
+          <a href="">${item.Name}</a>
+          <span>评论</span>
+          <a href="">《${item.MovieName}》</a>
+          <div class="star"></div>
+      </div>
+      <div class="review-content">
+      <div class="commentcontext">${item.Context}</div>
+          <a href="">(全文)</a>
+      </div>
+  </div>
+</div>`
+      })
+    })
+
 }
 
 for (let num = 0; num < 20; num++) {
   let url = 'http://42.192.155.29:8080/movie/' + (num + 1);
   img1[num].addEventListener('click', () => {
-    sessionStorage.setItem('num',num+1);
+    sessionStorage.setItem('num', num + 1);
     fetch(url, {
         method: 'GET',
       }).then(res => res.json())
       .then(res => {
-       sessionStorage.setItem('movie', JSON.stringify(res));
+        sessionStorage.setItem('movie', JSON.stringify(res));
       })
-    fetch('http://42.192.155.29:8080/topic/movie/'+(num+1), {
+    fetch('http://42.192.155.29:8080/topic/movie/' + (num + 1), {
         method: 'GET',
       }).then(res => res.json())
       .then(res => {
         sessionStorage.setItem('discuss', JSON.stringify(res));
       })
-      fetch('http://42.192.155.29:8080/shortcomment/movie/'+(num+1), {
+    fetch('http://42.192.155.29:8080/shortcomment/movie/' + (num + 1), {
         method: 'GET',
       }).then(res => res.json())
       .then(res => {
         sessionStorage.setItem('short', JSON.stringify(res));
       })
-      fetch('http://42.192.155.29:8080/filmcomment/movie/'+(num+1),{
-        method:'GET',
-      }).then(res=>res.json())
-      .then(res=>{
-        sessionStorage.setItem('filecomment',JSON.stringify(res));
+    fetch('http://42.192.155.29:8080/filmcomment/movie/' + (num + 1), {
+        method: 'GET',
+      }).then(res => res.json())
+      .then(res => {
+        sessionStorage.setItem('filecomment', JSON.stringify(res));
       })
-      setTimeout(() => {
-        // window.location.replace('../movie-details/build01/detail.html')
-        window.open('../movie-details/build01/detail.html')
-      }, 500);
+    setTimeout(() => {
+      // window.location.replace('../movie-details/build01/detail.html')
+      window.open('../movie-details/build01/detail.html')
+    }, 500);
   })
 }

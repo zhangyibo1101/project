@@ -17,3 +17,40 @@ more.addEventListener('click', () => {
     introduce.style.height='auto';
     bd.style.height='auto';
 })
+// 最近上映的5部作品
+let year=document.querySelectorAll('.year');
+per.YearInfo.split(',').map((item,index)=> {
+    year[index].innerHTML=item
+})
+let img1=document.querySelectorAll('.opus img')
+per.URLInfo1.split(',').map((item,index)=> {
+    img1[index].src=item
+})
+let title1=document.querySelectorAll('.opus .title')
+per.NameInfo1.split(',').map((item,index)=> {
+    title1[index].innerHTML=item
+})
+//最受好评的五部作品
+let img2=document.querySelectorAll('.best img')
+per.URLInfo2.split(',').map((item,index)=> {
+    img2[index].src=item
+})
+let title2=document.querySelectorAll('.best .title')
+per.NameInfo2.split(',').map((item,index)=> {
+    title2[index].innerHTML=item
+})
+// 合作零次的影人
+let img3=document.querySelectorAll('.people img')
+per.URLInfo3.split(',').map((item,index)=> {
+    img3[index].src=item
+})
+let title3=document.querySelectorAll('.people .title')
+per.NameInfo3.split(',').map((item,index)=> {
+    title3[index].innerHTML=item
+})
+//获奖情况
+let award=document.querySelector('.award');
+per.Award.split('\n').map(item=>{
+    award.innerHTML+=`<li>${item}</li>`
+})
+//点击电影查看详情

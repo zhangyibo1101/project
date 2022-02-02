@@ -65,6 +65,11 @@ h1 {
     right: 0;
     width: 400px;
 }
+/* 获奖情况 */
+.award {
+    margin: 50px 0;
+    font-size: 15px;
+}
 /* 最近作品 */
 .opus {
     width: 675px;
@@ -81,6 +86,7 @@ h1 {
 
 .opus li {
     display: inline-block;
+    vertical-align: top;
     width: 115px;
     height: 278px;
     margin-right: 20px;
@@ -120,6 +126,7 @@ h1 {
     width: 115px;
     height: 227px;
     margin-right: 20px;
+    vertical-align: top;
 }
 .best img {
     width: 115px;
