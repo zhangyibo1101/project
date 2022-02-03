@@ -26,15 +26,9 @@ movie.MovieURL.split(',').map((item,index)=>{
 })
 //详细介绍
 let messages = document.querySelectorAll('.message li');
-// 以下可以用数组的map，由于之前没有与后端沟通好，所以传来的数据形式不对，见影人的那部分类似的信息
-messages[0].innerHTML += movie.Director;
-messages[1].innerHTML += movie.Screenwriter;
-messages[2].innerHTML += movie.Starring;
-messages[3].innerHTML += movie.Type;
-messages[4].innerHTML += movie.Country;
-messages[5].innerHTML += movie.Language;
-messages[6].innerHTML += movie.Length;
-messages[7].innerHTML += movie.IMDb;
+Object.values(movie).slice(3,11).map((item,index)=>{
+    messages[index].innerHTML+=item;
+})
 let more = document.querySelector('.message a');
 more.addEventListener('click', () => {
     for (let i = 0; i < 8; i++) {
