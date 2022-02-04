@@ -57,10 +57,12 @@ article {
     background-color: #f8f8f8;
 }
 .card img {
+    vertical-align: middle;
     width: 48px;
     height: 62px;
 }
-.card span {
+.card div {
+    display: inline-block;
     color: #37a;
     font-size: 14px;
 }

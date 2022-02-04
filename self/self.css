@@ -139,6 +139,24 @@ h1 {
     font-size: 13px;
     margin-top: 20px;
 }
+/* 想看 */
+.wanto {
+    width: 675px;
+    height: 128px;
+    margin-top: 20px;
+}
+.wanto li {
+    float: left;
+    height: 128px;
+    color: #acacac;
+    font-size: 13px;
+    line-height: 128px;
+}
+.wanto img {
+    width: 85px;
+    height: 128px;
+    margin: 0 0 20px 35px;
+}
 textarea {
     outline: none;
     resize: none;
@@ -163,6 +181,11 @@ textarea {
     width: 132px;
     height: 132px;
     vertical-align: top;
+}
+.mess {
+    display: inline-block;
+    width: 140px;
+    height: 130px;
 }
 .line {
     height: 2px;

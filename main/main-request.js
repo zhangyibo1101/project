@@ -5,6 +5,7 @@ let name2 = document.querySelectorAll('#container2orgin .clone-span1');
 let img3 = document.querySelectorAll('#container3orgin img');
 let name3 = document.querySelectorAll('#container3orgin .clone-span1');
 let reviewarea = document.querySelector('.reviews-bd');
+// let galleryarea = document.getElementById('gallery');
 
 function clone(container, begin, end, arr) {
   for (let i = begin; i < end; i++) {
@@ -47,6 +48,23 @@ window.onload = function () {
       clone(container3clone, 0, 5, as3);
       clone(container3clone, 25, 30, as3);
     })
+  fetch('http://42.192.155.29:8080/recommend', {
+      method: 'GET',
+    }).then(res => res.json())
+    .then(res => {
+      console.log(res.data)
+      res.data.map(item => gallery.innerHTML += `<li>
+      <img src="${item.Context}" alt="">
+      <ul class="gallery-detail">
+          <h3>${item.Title}</h3>
+          <p>${item.URL}</p>
+      </ul>
+  </li>`)
+      let galleryitem = document.querySelectorAll('#gallery li');
+      gallery.style.width = (galleryitem.length + 1) * 675 + 'px';
+      clone(gallery, 0, 1, galleryitem);
+    })
+
   fetch('http://42.192.155.29:8080/mostpopular', {
       method: 'GET',
     }).then(res => res.json())

@@ -510,19 +510,43 @@ article {
 
 #gallery {
     height: 240px;
+    /* width: 6075px; */
     position: absolute;
     left: 0;
 }
 
 #gallery li {
     float: left;
-}
-
-#gallery li img {
+    font-size: 0;
     width: 675px;
     height: 240px;
 }
 
+#gallery li img {
+    float: left;
+    width: 350px;
+    height: 240px;
+}
+.gallery-detail {
+    float: left;
+    background: #F9F9F9;
+    width: 277px;
+    height: 168px;
+    padding: 48px 24px 24px 24px;
+}
+.gallery-detail h3{
+    text-align: center;
+    font-size: 18px;
+    color: #111;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+.gallery-detail p {
+    text-align: center;
+    font-size: 13px;
+    color: #999;
+    line-height: 20px;
+}
 /* 影评 */
 .reviews {
     width: 675px;

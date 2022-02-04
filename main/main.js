@@ -129,10 +129,8 @@ let as3 = document.querySelectorAll('#container3orgin a');
 slider(container3, right[2], left[2], 5, -700, null, null, dotarr.slice(5, 10));
 //轮播图04
 let gallery = document.getElementById('gallery');
-let galleryitem = document.querySelectorAll('#gallery li');
-gallery.style.width = (galleryitem.length + 1) * 675 + 'px';
-// clone(gallery, 0, 1, galleryitem);
 slider(gallery, right[3], left[3], 9, -675, 5000, count[1]);
+
 //整页超链接特效
 let alla = document.getElementsByTagName('a');
 //  alert(alla.length)

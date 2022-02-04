@@ -18,3 +18,11 @@ btns[2].addEventListener('click', () => {
         alert('请先登录豆瓣')
     }
 })
+btns[1].addEventListener('click',()=> {
+    if (username) {
+        sessionStorage.setItem('iscommend',true)
+        window.location.replace('file:///E:/%E7%B3%BB%E7%BB%9F%E9%BB%98%E8%AE%A4/%E6%A1%8C%E9%9D%A2/%E8%B1%86%E7%93%A3/discuss/discuss.html')
+    } else {
+        alert('请先登录豆瓣')
+    }
+})

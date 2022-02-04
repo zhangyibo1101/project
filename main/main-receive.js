@@ -26,28 +26,23 @@ if (username) {
                 token:token
             }
         }).then(res=>res.json())
-        .then(res=>sessionStorage.setItem('selfinfo1',res))
-        fetch('http://42.192.155.29:8080/user/user1',{
-            method:'GET',
-            headers:{
-                token:token
-            }
-        }).then(res=>res.json())
-        .then(res=>sessionStorage.setItem('selfinfo1',res))
+        .then(res=>{console.log(res)
+            sessionStorage.setItem('selfinfo1',JSON.stringify(res))
+    })
         fetch('http://42.192.155.29:8080/user/user2',{
             method:'GET',
             headers:{
                 token:token
             }
         }).then(res=>res.json())
-        .then(res=>sessionStorage.setItem('selfinfo2',res))
+        .then(res=>sessionStorage.setItem('selfinfo2',JSON.stringify(res)))
         fetch('http://42.192.155.29:8080/user/user3',{
             method:'GET',
             headers:{
                 token:token
             }
         }).then(res=>res.json())
-        .then(res=>sessionStorage.setItem('selfinfo3',res))
+        .then(res=>sessionStorage.setItem('selfinfo3',JSON.stringify(res)))
         fetch('http://42.192.155.29:8080/user/user4',{
             method:'GET',
             headers:{
