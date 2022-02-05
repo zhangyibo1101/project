@@ -94,37 +94,30 @@ window.onload = function () {
 
 }
 
-for (let num = 0; num < 20; num++) {
-  let url = 'http://42.192.155.29:8080/movie/' + (num + 1);
-  img1[num].addEventListener('click', () => {
-    sessionStorage.setItem('num', num + 1);
+function newfetch2(url) {
+  return new Promise((resolve, reject) => {
     fetch(url, {
         method: 'GET',
       }).then(res => res.json())
-      .then(res => {
-        sessionStorage.setItem('movie', JSON.stringify(res));
-      })
-    fetch('http://42.192.155.29:8080/topic/movie/' + (num + 1), {
-        method: 'GET',
-      }).then(res => res.json())
-      .then(res => {
-        sessionStorage.setItem('discuss', JSON.stringify(res));
-      })
-    fetch('http://42.192.155.29:8080/shortcomment/movie/' + (num + 1), {
-        method: 'GET',
-      }).then(res => res.json())
-      .then(res => {
-        sessionStorage.setItem('short', JSON.stringify(res));
-      })
-    fetch('http://42.192.155.29:8080/filmcomment/movie/' + (num + 1), {
-        method: 'GET',
-      }).then(res => res.json())
-      .then(res => {
-        sessionStorage.setItem('filecomment', JSON.stringify(res));
-      })
-    setTimeout(() => {
-      // window.location.replace('../movie-details/build01/detail.html')
-      window.open('../movie-details/build01/detail.html')
-    }, 500);
+      .then(res => resolve(res))
+      .catch(err => reject(err))
   })
+}
+for (let num = 1; num < 20; num++) {
+  img1[num - 1].addEventListener('click', () => {
+      sessionStorage.setItem('num', num);
+      async function sendbyfetch2() {
+          let res1 = await newfetch2('http://42.192.155.29:8080/movie/' + num);
+          sessionStorage.setItem('movie', JSON.stringify(res1));
+          let res2 = await newfetch2('http://42.192.155.29:8080/topic/movie/' + num);
+          sessionStorage.setItem('discuss', JSON.stringify(res2));
+          let res3 = await newfetch2('http://42.192.155.29:8080/shortcomment/movie/' + num);
+          sessionStorage.setItem('short', JSON.stringify(res3));
+          let res4 = await newfetch2('http://42.192.155.29:8080/filmcomment/movie/' + num);
+          sessionStorage.setItem('filecomment', JSON.stringify(res4));
+        window.location.replace('../movie-details/build01/detail.html')
+      }
+      sendbyfetch2();
+    }
+  )
 }

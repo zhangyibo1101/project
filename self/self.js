@@ -7,7 +7,7 @@ if(username){
 }
 let selfinfo1=JSON.parse(sessionStorage.getItem('selfinfo1')).data;
 let selfinfo2=JSON.parse(sessionStorage.getItem('selfinfo2')).data;
-// let selfinfo3=JSON.parse(sessionStorage.getItem('selfinfo3')).data;
+let selfinfo3=JSON.parse(sessionStorage.getItem('selfinfo3')).data;
 // let selfinfo4=JSON.parse(sessionStorage.getItem('selfinfo4')).data;
 //自我介绍
 let selfarea1=document.querySelector('.dairy');
@@ -26,4 +26,21 @@ selfinfo2[0].WantToWatchURL.split(',').map(item=> {
 let havearea=document.querySelector('#havewatch');
 selfinfo2[0].HaveWatchedURL.split(',').map(item=>{
     havearea.innerHTML+=`<img src="${item}" alt="">`
+})
+//影评
+let commendarea=document.querySelector('.commendarea');
+console.log(selfinfo3)
+selfinfo3.map(item=> {
+    commendarea.innerHTML+=`
+    <div class="commends">
+                        <img src="${item.URL}" class="commendimg">
+                        <a  href="#" class="commendtitle">${item.Context.split('，')[0]}</a>
+                        <div class="commendbd">
+                         <a href="#">${item.Name}</a>
+                         评论：
+                         <a class="movietitle">${item.MovieName}</a>
+                         <span class="stars"></span>
+                        </div>
+                        <div class="commendcontext">${item.Context}</div>
+                    </div>`
 })

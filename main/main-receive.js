@@ -3,8 +3,8 @@ let login = document.querySelector('.header_right1 a');
 let myself = document.querySelector('.myself');
 let quit = document.getElementById('quit');
 let mine = document.getElementById('mine');
-let token =sessionStorage.getItem('token');
-console.log(token)
+let token = sessionStorage.getItem('token');
+// console.log(token)
 if (username) {
     login.innerHTML = username + '你好！';
     login.href = '#';
@@ -20,37 +20,28 @@ if (username) {
         window.location.reload();
     })
     mine.addEventListener('click', () => {
-        fetch('http://42.192.155.29:8080/user/user1',{
-            method:'GET',
-            headers:{
-                token:token
+        function newfetch(url) {
+            return new Promise((resolve, reject) => {
+                fetch(url, {
+                        method: 'GET',
+                        headers: {
+                            token: token,
+                        }
+                    }).then(res => res.json())
+                    .then(res => resolve(res))
+                    .catch(err => reject(err))
+            })
+        }
+        async function sendbyfetch() {
+            let num = 1;
+            let basicURL = 'http://42.192.155.29:8080/user/user'
+            for (; num <= 4; num++) {
+                let res = await newfetch(basicURL + num);
+                sessionStorage.setItem('selfinfo' + num, JSON.stringify(res));
             }
-        }).then(res=>res.json())
-        .then(res=>{console.log(res)
-            sessionStorage.setItem('selfinfo1',JSON.stringify(res))
-    })
-        fetch('http://42.192.155.29:8080/user/user2',{
-            method:'GET',
-            headers:{
-                token:token
-            }
-        }).then(res=>res.json())
-        .then(res=>sessionStorage.setItem('selfinfo2',JSON.stringify(res)))
-        fetch('http://42.192.155.29:8080/user/user3',{
-            method:'GET',
-            headers:{
-                token:token
-            }
-        }).then(res=>res.json())
-        .then(res=>sessionStorage.setItem('selfinfo3',JSON.stringify(res)))
-        fetch('http://42.192.155.29:8080/user/user4',{
-            method:'GET',
-            headers:{
-                token:token
-            }
-        }).then(res=>res.json())
-        .then(res=>sessionStorage.setItem('selfinfo4',res))
-        window.location.replace('../self/build/self.html')
+            window.location.replace('../self/build/self.html')
+        }
+        sendbyfetch();
     })
 
 }

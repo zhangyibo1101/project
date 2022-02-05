@@ -122,8 +122,9 @@ h1 {
     width: 675px;
     height: 22px;
     color: #072;
+    margin-top: 30px;
 }
-.intro a {
+.plus {
     float: right;
     height: 22px;
     width: 82px;
@@ -134,12 +135,53 @@ h1 {
     border: 1px solid #edded4;
     border-radius: 2px;
 }
-.intro span {
-    display: inline-block;
+/* 自我介绍 */
+.dairy {
     font-size: 13px;
     margin-top: 20px;
 }
-/* 想看 */
+/* 影评 */
+.commends {
+    width: 675px;
+    height: 150px;
+    margin-top: 30px;
+}
+.commendimg {
+    float: left;
+    width: 90px;
+    height: 126px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    vertical-align: top;
+}
+.commendtitle {
+    display: inline-block;
+    width: 570px;
+    font-size: 14px;
+}
+.commendbd {
+    display: inline-block;
+    width: 570px;
+    margin: 7px 0;
+    color: #666;
+    font-size: 14px;
+}
+.commendcontext {
+    width: 570px;
+    height: 80px;
+    overflow: hidden;
+    margin-top: 8px;
+    line-height: 20px;
+    font-size: 14px;
+}
+.stars {
+    display: inline-block;
+    width: 110px;
+    height: 22px;
+    background: url(./build/stars.png);
+    zoom: 0.5;
+}
+/* 想看、看过 */
 .wanto {
     width: 675px;
     height: 128px;
