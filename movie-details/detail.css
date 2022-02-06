@@ -16,7 +16,7 @@ h1 {
 }
 .introduce1 img {
     width: 135px;
-    height: 220px;
+    height: 200px;
 }
 .message {
     display: inline-block;
@@ -39,7 +39,7 @@ h1 {
 .commend {
     float: right;
     width: 150px;
-    height: 200px;
+    height: 150px;
     margin: 2px 0 0 0;
     padding: 0 0 0 15px;
     border-left: 1px solid #eaeaea;
@@ -74,7 +74,6 @@ h2 {
 .ui1 {
     width: 675px;
     height: 40px;
-    /* background-color: silver; */
 }
 .ui1 a {
     display: inline-block;
@@ -83,6 +82,11 @@ h2 {
     width: 50px;
     background-color: bisque;
     border: 1px solid gray;
+    color: #000;
+    font-size: 12px;
+    letter-spacing: 3px;
+    line-height: 22px;
+    border-radius: 3px;
 }
 .ui2 {
     width: 675px;

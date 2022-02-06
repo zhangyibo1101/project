@@ -99,7 +99,7 @@ window.onload = function () {
     })
 
 }
-
+//电影详情
 function newfetch2(url) {
   return new Promise((resolve, reject) => {
     fetch(url, {
@@ -126,3 +126,17 @@ for (let num = 1; num < 20; num++) {
     sendbyfetch2();
   })
 }
+//排行榜
+let movielist=document.getElementById('movielist');
+movielist.addEventListener('click',()=> {
+  async function sendbyfetch3(){
+    let res1=await newfetch2('http://42.192.155.29:8080/rank1')
+    sessionStorage.setItem('list1',JSON.stringify(res1))
+    let res2=await newfetch2('http://42.192.155.29:8080/rank2')
+    sessionStorage.setItem('list2',JSON.stringify(res2))
+    let res3=await newfetch2('http://42.192.155.29:8080/rank3')
+    sessionStorage.setItem('list3',JSON.stringify(res3))
+    window.open(basicURL+'/list/build/list.html')
+  }
+  sendbyfetch3();
+})
