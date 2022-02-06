@@ -4,7 +4,7 @@ let myself = document.querySelector('.myself');
 let quit = document.getElementById('quit');
 let mine = document.getElementById('mine');
 let token = sessionStorage.getItem('token');
-// console.log(token)
+let basicURL = 'http://127.0.0.1:5500';
 if (username) {
     login.innerHTML = username + '你好！';
     login.href = '#';
@@ -34,12 +34,11 @@ if (username) {
         }
         async function sendbyfetch() {
             let num = 1;
-            let basicURL = 'http://42.192.155.29:8080/user/user'
             for (; num <= 4; num++) {
-                let res = await newfetch(basicURL + num);
+                let res = await newfetch('http://42.192.155.29:8080/user/user' + num);
                 sessionStorage.setItem('selfinfo' + num, JSON.stringify(res));
             }
-            window.location.replace('../self/build/self.html')
+            window.location.replace(basicURL+'/self/build/self.html')
         }
         sendbyfetch();
     })

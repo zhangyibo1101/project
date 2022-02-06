@@ -1,3 +1,6 @@
+import {
+    Star
+} from '../mymodule/stars.js'
 //接受电影数据
 let movie = JSON.parse(sessionStorage.getItem('movie')).data;
 //电影图、电影名
@@ -7,27 +10,27 @@ mv.src = movie.URL;
 h1.innerHTML = movie.Name;
 //演员
 let performers = document.querySelectorAll('.performer img');
-movie.PeopleURL.split(',').map((item,index)=> {
-    performers[index].src=item
+movie.PeopleURL.split(',').map((item, index) => {
+    performers[index].src = item
 })
-let performername=document.querySelectorAll('.performername');
+let performername = document.querySelectorAll('.performername');
 
-movie.NameInfo.split(',').map((item,index)=> {
-    performername[index].innerHTML=item
+movie.NameInfo.split(',').map((item, index) => {
+    performername[index].innerHTML = item
 })
-let performerjob=document.querySelectorAll('.performerjob');
-movie.CoverInfo.split(',').map((item,index)=>{
-    performerjob[index].innerHTML=item;
+let performerjob = document.querySelectorAll('.performerjob');
+movie.CoverInfo.split(',').map((item, index) => {
+    performerjob[index].innerHTML = item;
 })
 //剧照
-let still=document.querySelectorAll('.still img');
-movie.MovieURL.split(',').map((item,index)=>{
-    still[index].src=item;
+let still = document.querySelectorAll('.still img');
+movie.MovieURL.split(',').map((item, index) => {
+    still[index].src = item;
 })
 //详细介绍
 let messages = document.querySelectorAll('.message li');
-Object.values(movie).slice(3,11).map((item,index)=>{
-    messages[index].innerHTML+=item;
+Object.values(movie).slice(3, 11).map((item, index) => {
+    messages[index].innerHTML += item;
 })
 let more = document.querySelector('.message a');
 more.addEventListener('click', () => {
@@ -42,16 +45,21 @@ introduce.innerHTML = movie.Synopsis;
 //评分、评分
 let h2 = document.querySelector('h2');
 h2.innerHTML = movie.Score;
+let com_p = document.getElementById('com_p');
+com_p.innerHTML = movie.HaveWatched + '人评价'
+//星级
+const bigstar = new Star('bigstar', movie.Score, 0.682);
+bigstar.create();
 let marks = document.querySelectorAll('.commend span');
 for (let i = 0; i < 5; i++) {
     marks[i].innerHTML = movie.Star.split(",")[i];
 }
-let commonfonts=document.getElementsByClassName('commonfont');
-commonfonts[0].innerHTML=movie.Name+'的剧情介绍 · · · · · ·';
-commonfonts[1].innerHTML=movie.Name+'的演职员 · · · · · ·';
-commonfonts[2].innerHTML=movie.Name+'的剧照 · · · · · ·';
-commonfonts[3].innerHTML=movie.Name+'的短评 · · · · · ·';
-commonfonts[4].innerHTML=movie.Name+'的影评 · · · · · ·';
+let commonfonts = document.getElementsByClassName('commonfont');
+commonfonts[0].innerHTML = movie.Name + '的剧情介绍 · · · · · ·';
+commonfonts[1].innerHTML = movie.Name + '的演职员 · · · · · ·';
+commonfonts[2].innerHTML = movie.Name + '的剧照 · · · · · ·';
+commonfonts[3].innerHTML = movie.Name + '的短评 · · · · · ·';
+commonfonts[4].innerHTML = movie.Name + '的影评 · · · · · ·';
 //接受讨论数据
 let discuss = JSON.parse(sessionStorage.getItem('discuss')).data;
 let disarea = document.querySelector('.discuss');
@@ -66,31 +74,33 @@ discuss.forEach(item => {
 })
 
 //接受短评数据
-let shortarea=document.getElementsByClassName('short')[0];
-let shorts=JSON.parse(sessionStorage.getItem('short')).data;
-shorts.forEach(item=> {
-    shortarea.innerHTML+=
-    `<ul>
+let shortarea = document.getElementsByClassName('short')[0];
+let shorts = JSON.parse(sessionStorage.getItem('short')).data;
+shorts.forEach(item => {
+    shortarea.innerHTML +=
+        `<ul>
     <li>
         <a href="#">${item.Name}</a>
-        <div class="xing"></div>
+        <div class="stars" id="short_star${item.id}"></div>
         <span class="clock">${item.CommentTime}</span>
         <a href="#" class="usea">有用</a>
         <span class="usenum">${item.Likes}</span>
     </li>
     <li>${item.Context}</li>
 </ul>`
+    let star2 = new Star(`short_star${item.id}`, item.StarNum, 0.5);
+    star2.create();
 })
 //接受影评数据
-let filecomments=JSON.parse(sessionStorage.getItem('filecomment')).data;
-let filecommentarea=document.querySelector('.movie');
-filecomments.forEach(item=> {
-    filecommentarea.innerHTML+=
-    `<ul>
+let filecomments = JSON.parse(sessionStorage.getItem('filecomment')).data;
+let filecommentarea = document.querySelector('.movie');
+filecomments.forEach(item => {
+    filecommentarea.innerHTML +=
+        `<ul>
     <li>
         <img src="./tiger1.png" alt="">
         <a href="#">${item.name}</a>
-        <div class="xing"></div>
+        <div id="movie_star${item.id}" class="stars"></div>
         <span class="clock">${item.post_time}</span>
     <li><a href="#">${item.context.split('，')[0]}</a></li>
     <li>${item.context}</li>
@@ -100,4 +110,53 @@ filecomments.forEach(item=> {
         <a href="#">${item.comment_num}回应</a>
     </li>
 </ul>`
+    let star1 = new Star(`movie_star${item.id}`, item.star_num, 0.5);
+    star1.create();
 })
+//讨论区
+let basicURL='http://127.0.0.1:5500';
+let btns = document.getElementsByTagName('button');
+console.log(btns[1].innerHTML);
+btns[2].addEventListener('click', () => {
+    if (username) {
+        window.location.replace(basicURL+'/discuss/discuss.html')
+    } else {
+        alert('请先登录豆瓣')
+    }
+})
+btns[1].addEventListener('click',()=> {
+    if (username) {
+        sessionStorage.setItem('iscommend',true)
+        window.location.replace(basicURL+'/discuss/discuss.html')
+    } else {
+        alert('请先登录豆瓣')
+    }
+})
+
+//查看影人
+let imgs = document.querySelectorAll('.performer img');
+imgs[0].addEventListener('click', () => {
+    fetch('http://42.192.155.29:8080/celebrity/1', {
+            method: 'GET'
+        }).then(res => res.json())
+        .then(res => {
+            sessionStorage.setItem('performer', JSON.stringify(res))
+            window.location.replace(basicURL+'/performer/build/performer.html')
+        })
+})
+
+//动态更新背景
+let wrapper=document.querySelector('.wrapper');
+let content=document.querySelector('.content');
+let article=document.querySelector('article');
+
+article.style.height='auto'
+
+let article_style=getComputedStyle(article,null)
+content.style.height=article_style.height
+wrapper.style.height=article_style.height
+let wrapper_style=getComputedStyle(wrapper,null)
+let content_style=getComputedStyle(content,null)
+console.log(wrapper_style.height)
+console.log(content_style.height)
+console.log(article_style.height)

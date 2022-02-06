@@ -1,3 +1,6 @@
+import {
+  Star
+} from '../mymodule/stars.js'
 let img1 = document.querySelectorAll('#container img');
 let name1 = document.querySelectorAll('.name a');
 let img2 = document.querySelectorAll('#container2orgin img');
@@ -5,6 +8,7 @@ let name2 = document.querySelectorAll('#container2orgin .clone-span1');
 let img3 = document.querySelectorAll('#container3orgin img');
 let name3 = document.querySelectorAll('#container3orgin .clone-span1');
 let reviewarea = document.querySelector('.reviews-bd');
+let basicURL = 'http://127.0.0.1:5500';
 // let galleryarea = document.getElementById('gallery');
 
 function clone(container, begin, end, arr) {
@@ -81,7 +85,7 @@ window.onload = function () {
           <a href="">${item.Name}</a>
           <span>评论</span>
           <a href="">《${item.MovieName}》</a>
-          <div class="star"></div>
+          <div class="star" id="stars${item.Id}"></div>
       </div>
       <div class="review-content">
       <div class="commentcontext">${item.Context}</div>
@@ -89,6 +93,8 @@ window.onload = function () {
       </div>
   </div>
 </div>`
+        let stars = new Star(`stars${item.Id}`, item.StarNum, 0.5);
+        stars.create();
       })
     })
 
@@ -105,19 +111,18 @@ function newfetch2(url) {
 }
 for (let num = 1; num < 20; num++) {
   img1[num - 1].addEventListener('click', () => {
-      sessionStorage.setItem('num', num);
-      async function sendbyfetch2() {
-          let res1 = await newfetch2('http://42.192.155.29:8080/movie/' + num);
-          sessionStorage.setItem('movie', JSON.stringify(res1));
-          let res2 = await newfetch2('http://42.192.155.29:8080/topic/movie/' + num);
-          sessionStorage.setItem('discuss', JSON.stringify(res2));
-          let res3 = await newfetch2('http://42.192.155.29:8080/shortcomment/movie/' + num);
-          sessionStorage.setItem('short', JSON.stringify(res3));
-          let res4 = await newfetch2('http://42.192.155.29:8080/filmcomment/movie/' + num);
-          sessionStorage.setItem('filecomment', JSON.stringify(res4));
-        window.location.replace('../movie-details/build01/detail.html')
-      }
-      sendbyfetch2();
+    sessionStorage.setItem('num', num);
+    async function sendbyfetch2() {
+      let res1 = await newfetch2('http://42.192.155.29:8080/movie/' + num);
+      sessionStorage.setItem('movie', JSON.stringify(res1));
+      let res2 = await newfetch2('http://42.192.155.29:8080/topic/movie/' + num);
+      sessionStorage.setItem('discuss', JSON.stringify(res2));
+      let res3 = await newfetch2('http://42.192.155.29:8080/shortcomment/movie/' + num);
+      sessionStorage.setItem('short', JSON.stringify(res3));
+      let res4 = await newfetch2('http://42.192.155.29:8080/filmcomment/movie/' + num);
+      sessionStorage.setItem('filecomment', JSON.stringify(res4));
+      window.open(basicURL + '/movie-details/build01/detail.html')
     }
-  )
+    sendbyfetch2();
+  })
 }

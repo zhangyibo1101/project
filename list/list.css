@@ -1,0 +1,25 @@
+h1 {
+    width: 1040px;
+    margin: 0 auto;
+    font-size: 26px;
+    color: #494949;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+.hd {
+    font-size: 16px;
+    color: #072;
+    margin: 0 0 12px 0;
+    line-height: 150%;
+}
+.movie {
+    width: 675px;
+    height: 130px;
+    padding-top: 20px;
+    border-top:1px dashed #DDDDDD;;
+}
+.movie img {
+    float: left;
+    width: 75px;
+    height: 112px;
+}

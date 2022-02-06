@@ -54,3 +54,21 @@ per.Award.split('\n').map(item=>{
     award.innerHTML+=`<li>${item}</li>`
 })
 //点击电影查看详情
+
+
+
+//动态更新背景
+let wrapper=document.querySelector('.wrapper');
+let content=document.querySelector('.content');
+let article=document.querySelector('article');
+
+article.style.height='auto'
+
+let article_style=getComputedStyle(article,null)
+content.style.height=article_style.height
+wrapper.style.height=article_style.height
+let wrapper_style=getComputedStyle(wrapper,null)
+let content_style=getComputedStyle(content,null)
+console.log(wrapper_style.height)
+console.log(content_style.height)
+console.log(article_style.height)

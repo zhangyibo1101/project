@@ -1,0 +1,20 @@
+{
+  "name": "douban",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pureboboha/project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pureboboha/project/issues"
+  },
+  "homepage": "https://github.com/pureboboha/project#readme",
+  "type": "module"
+}
