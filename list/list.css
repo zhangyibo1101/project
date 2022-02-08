@@ -75,8 +75,10 @@ h1 {
     font-size: 12.5px;
     margin-top: 10px;
 }
-
-.weeklist li {
+.weeklist,.northlist {
+    margin-bottom: 30px;
+}
+.weeklist li,.northlist li {
     width: 300px;
     height: 22px;
     border-bottom: 1px dashed #ddd;
@@ -93,6 +95,11 @@ h1 {
 .listname {
     width: 240px;
     color: #37a;
+}
+.boxoffice {
+    float: right;
+    font-size: 11px;
+    color: #494949;
 }
 .toplist {
     width: 300px;

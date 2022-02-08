@@ -44,6 +44,14 @@ weeklist.map(item => {
 })
 // 北美排行榜
 let northlistarea = document.querySelector('.northlist');
+let northlist=JSON.parse(sessionStorage.getItem('list4')).data;
+northlist.map(item=>{
+    northlistarea.innerHTML+=`<li>
+    <div class="no">${item.Id}</div>
+    <a href="#" class="listname">${item.Name}</a>
+    <div class="boxoffice">${item.BoxOffice}</div>
+</li>`
+})
 //top榜
 let toplistarea = document.querySelector('.toplist');
 let toplist = JSON.parse(sessionStorage.getItem('list3')).data;

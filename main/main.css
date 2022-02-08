@@ -591,7 +591,7 @@ article {
     height: 120px;
 }
 
-.review-bd a {
+.bigtitle a {
     font-size: 15px;
 }
 
@@ -605,8 +605,12 @@ article {
 
 .review-meta a {
     color: #666;
+    font-size: 13px;
 }
-
+.review-bd a:hover {
+    background-color: #37a;
+    color: #fff;
+}
 .review-content {
     width: 592px;
     height: 80px;
@@ -618,15 +622,12 @@ article {
     overflow: hidden;
     font-size: 13px;
     line-height: 20px;
+    color: #111;
 }
-.star {
-    display: inline-block;
-    height: 22px;
-    width: 110px;
-    background: url(image/star.png);
-    zoom: 0.5;
+.allessay {
+    font-size: 13px;
+    color: #37a;
 }
-
 /* aside部分 */
 aside {
     float: right;

@@ -1,0 +1,30 @@
+h1 {
+    width: 1040px;
+    margin: 0 auto;
+    color: #333;
+    font-size: 25px;
+    height: 36px;
+    margin-bottom: 25px;
+    line-height: 36px;
+    font-weight: 700;
+    margin-top: 50px;
+}
+.tag {
+    width: 700px;
+    height: 311px;
+}
+.category {
+    width: 700px;
+    margin-bottom: 17px;
+}
+.category span {
+    cursor: pointer;
+    font-size: 14px;
+    padding: 2px 10px;
+    line-height: 20px;
+    border-radius: 2px;
+    display: inline-block;
+    color: #333;
+    margin-right: 4px;
+    padding-top: 3px;
+}
