@@ -28,3 +28,43 @@ h1 {
     margin-right: 4px;
     padding-top: 3px;
 }
+.moviearea {
+    width: 675px;
+    font-size: 0;
+    margin-top: 50px;
+}
+.moviearea li {
+    display: inline-block;
+    width: 115px;
+    height: 200px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    vertical-align: top;
+}
+.moviearea img {
+    width: 115px;
+    height: 161px;
+}
+.moviename {
+    display: inline-block;
+    color: #333;
+    line-height: 18px;
+    padding-right: 15px;
+    font-size: 13px;
+    overflow: hidden;
+    width: 115px;
+    height: 18px;
+}
+.moviemarks {
+    color: #ffac2d;
+    line-height: 18px;
+    padding-right: 15px;
+    margin: 8px 0 20px;
+    font-size: 13px;
+}
+.warn {
+    font-size: 15px;
+    text-align: center;
+    margin-top: 100px;
+    color: gainsboro;
+}
