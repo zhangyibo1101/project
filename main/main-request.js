@@ -9,7 +9,6 @@ let img3 = document.querySelectorAll('#container3orgin img');
 let name3 = document.querySelectorAll('#container3orgin .clone-span1');
 let reviewarea = document.querySelector('.reviews-bd');
 let basicURL = 'http://127.0.0.1:5500';
-// let galleryarea = document.getElementById('gallery');
 
 function clone(container, begin, end, arr) {
   for (let i = begin; i < end; i++) {

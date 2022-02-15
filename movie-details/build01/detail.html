@@ -11,7 +11,29 @@
 </head>
 
 <body>
-
+    <div class="springwindow">
+        <div class="formarea">
+            <div class="form-hd">
+                <span class="smalltips"></span>
+                <span class="gact">x</span>
+            </div>
+            <div class="tags-switch">
+                <input type="radio" name="see" id="wanttowatch"><label for="wanttowatch">想看</label>
+                <input type="radio" name="see" id="havewatch"><label for="havewatch">看过</label>
+                给个评分吧：<div id="marks2"></div>
+                <a href="#">缩起</a>
+            </div>
+            <div class="myform">
+                <li>标签（多个标签用空格分隔）：</li>
+                <input type="text" id="blankinput">
+                <li id="brief">简短评论：</li>
+                <textarea name="" id="shortcommend" cols="30" rows="10"></textarea>
+            </div>
+            <div id="submit">
+                <input type="submit" id="save">
+            </div>
+        </div>
+    </div>
     <header>
         <div class="header_left"><a href="#">豆瓣</a></div>
         <div class="header_left"><a href="#">读书</a></div>
@@ -97,19 +119,24 @@
                             <div id="bigstar"></div>
                             <div id="com_p"><a href="#">ff</a></div>
                         </div>
-                        <div>5星:<span></span></div>
-                        <div>4星:<span></span></div>
-                        <div>3星:<span></span></div>
-                        <div>2星:<span></span></div>
-                        <div>1星:<span></span></div>
+                        <div>5星:<div class="rectangle"></div><span></span></div>
+                        <div>4星:<div class="rectangle"></div><span></span></div>
+                        <div>3星:<div class="rectangle"></div><span></span></div>
+                        <div>2星:<div class="rectangle"></div><span></span></div>
+                        <div>1星:<div class="rectangle"></div><span></span></div>
+                        <div class="compare">
+                            <li>好于<a href="#">73%的悬疑片</a></li>
+                            <li>好于<a href="#">68%的喜剧片</a></li>
+                        </div>
                     </div>
                     <div class="ui1">
-                        <a href="">想看</a>
-                        <a href="">看过</a>
+                        <a href="#">想看</a>
+                        <a href="#">看过</a>
+                        评价：<div id="marks1"></div>
                     </div>
                     <div class="ui2">
-                        <a href="">写短评</a>
-                        <a href="">写影评</a>
+                        <a href="#">写短评</a>
+                        <a href="#">写影评</a>
                     </div>
 
                 </div>

@@ -20,6 +20,7 @@ export class Tag {
         this.category.appendChild(tag);
         this.container.appendChild(this.category);
     }
+    
     operate() {
         this.tags.map(this.handleoperate)
     }

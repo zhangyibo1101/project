@@ -17,10 +17,7 @@ let categorys = [c1, c2, c3, c4, c5];
 })
 
 let tags = document.querySelectorAll('.category span');
-// [...tags].filter(item=>item.innerHTML.indexOf('全部')==0).forEach(item=>{
-//     item.style.backgroundColor="#258DCD";
-//     item.style.color="#fff";
-// })
+
 function updateUI() {
     [...tags].map(item => {
         item.addEventListener('click', () => {
@@ -62,27 +59,41 @@ async function update() {
         res.data.map(
             item => {
                 moviearea.innerHTML += ` <li>
-                <img src="${item.URL}" alt=""> 
-                <span class="moviename">${item.Name}</span>
-                <span class="moviemarks">${item.Score}</span>
-                </li>`
+            <img data-src="${item.URL}" alt="" class="movieimg"> 
+            <span class="moviename">${item.Name}</span>
+            <span class="moviemarks">${item.Score}</span>
+            </li>`
             })
     } else {
         console.log(res.data)
         moviearea.innerHTML = '<p class="warn">抱歉，暂无此类电影~~</p>'
     }
+    // 性能优化：图片懒加载
+    let movieimg = document.querySelectorAll('.movieimg');
+    const callback = entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                let image = entry.target;
+                let data_src = image.getAttribute('data-src');
+                image.setAttribute('src', data_src);
+                observer.unobserve(image);
+            }
+        })
+    }
+    const observer = new IntersectionObserver(callback);
+    movieimg.forEach(item => {
+        observer.observe(item)
+    })
 }
-
-
 window.onload = function () {
     update();
-
 }
-//动态更新背景
-    let wrapper = document.querySelector('.wrapper');
-    let content = document.querySelector('.content');
-    let article = document.querySelector('article');
 
-    article.style.height = '1663px'
-    content.style.height = '1663px'
-    wrapper.style.height = '1663px'
+
+let wrapper = document.querySelector('.wrapper');
+let content = document.querySelector('.content');
+let article = document.querySelector('article');
+
+article.style.height = '1663px'
+content.style.height = '1663px'
+wrapper.style.height = '1663px'
