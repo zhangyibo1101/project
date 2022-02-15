@@ -141,14 +141,16 @@ btns[1].addEventListener('click',()=> {
 
 //查看影人
 let imgs = document.querySelectorAll('.performer img');
-imgs[0].addEventListener('click', () => {
-    fetch('http://42.192.155.29:8080/celebrity/1', {
-            method: 'GET'
-        }).then(res => res.json())
-        .then(res => {
-            sessionStorage.setItem('performer', JSON.stringify(res))
-            window.location.replace(basicURL+'/performer/build/performer.html')
-        })
+[...imgs].map((image,index)=>{
+    image.addEventListener('click', () => {
+        fetch(`http://42.192.155.29:8080/movie/${movieid}/${index+1}`, {
+                method: 'GET'
+            }).then(res => res.json())
+            .then(res => {
+                sessionStorage.setItem('performer', JSON.stringify(res))
+                window.location.replace(basicURL+'/performer/build/performer.html')
+            })
+    })
 })
 //评分
 const tomark1=new Marks('marks1',0.5,-1)

@@ -111,7 +111,8 @@ function create(container) {
         <div class="clone-div">
             <span class="clone-span1"></span>
             <span class="clone-span2"></span>
-        </div>`
+        </div>
+        </a>`
     }
 }
 create(container2orgin);
